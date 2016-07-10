@@ -6,7 +6,9 @@ before_install:
 - tlmgr install index
 install:
 - PATH=$HOME/texlive/bin/x86_64-linux:$PATH
-  overwrite: true-output-directory _build vorlage.tex
+script:
+- mkdir _build
+- pdflatex -output-directory _build vorlage.tex
 deploy:
   provider: releases
   api_key:
@@ -16,3 +18,18 @@ deploy:
   on:
     tags: false
     repo: AndreaBittner/latex_test
+
+
+
+script:
+- mkdir _build
+- pdflatex -output-directory _build vorlage.tex
+
+deploy:
+  provider: releases
+  api_key:
+    secure: "f64MHFejW83WaEx86pbYLJ0H1ZMof51k4PyOjuNG04OubN1nsKWE3VrqNPOWekYcdzl6iXNmzWO7/QfGZ8k0OiINP/i6acs7aIqqv2S0NWZ46EfiurtJqCY73fByRrKx+CAeY7FoWpQ8/VCnCU/X0dL5EpmyT1RuCfN91435P+kyiXKvsYgM3/KfOMAgsatSdJ79T9YysB1L9nVFBvGJQA52u2zRMuhtIHZuoNE8Wow/6pSr6or7ddQf6sb/5TxFQZEQohoUtdF61kkFzzWKDDOk4C6aiyfoXc2TQUeVftJqY5Aj92jYBvilKTYKugeVqAvSIo8KfjjxCjqxASBrbJA4gNh1RnL8lUylLiAFNwQ2uO8aczY8bToh4c+WIfPLjuqA+JXtTquGSxU4Bx5VgdYKBfaY5gYptYhYx2p/YCc1UJQFx2GoHpPj4QGH2lKi0RFbwSroTOkmvomXLoqwANz6Mihwi5G/Gf03wVOTOVu3B98KJT2FCi2v0TcoaM3/3cJV2fjLfFeiIYmTWJGhjI79wX3hKmZ4mH1EUV/dYrVudLUwM304Av+s/eDQyOwG6DazQl5YBqIRtF+SJ4Rn0sFY0S7Ukf7+d982qk2vn+zc7deOKSDw01vf02PK2S6Sh9yCglUVnIXYVbeXpYp4cR4ikNDvG0GNF3pweKQ6l3A="
+  file: buildByTravis/vorlage.pdf
+  skip_cleanup: true
+  on:
+    all_branches: true
