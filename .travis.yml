@@ -19,5 +19,4 @@ deploy:
   file: vorlage.pdf
   skip_cleanup: true
   on:
-    tags: on
     all_branches: true
