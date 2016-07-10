@@ -14,6 +14,8 @@ script:
 
 deploy:
   provider: releases
+  api_key:
+    - secure: 
   file: vorlage.pdf
   skip_cleanup: true
   on:
