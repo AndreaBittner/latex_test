@@ -1,22 +1,20 @@
 language: r
 cache: packages
-
 before_install:
-- "sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng texlive-lang-german"
+- sudo apt-get update && sudo apt-get install --no-install-recommends texlive-fonts-recommended
+  texlive-latex-extra texlive-fonts-extra texlive-latex-recommended dvipng texlive-lang-german
 - tlmgr install index
-
 install:
-  - PATH=$HOME/texlive/bin/x86_64-linux:$PATH
-
+- PATH=$HOME/texlive/bin/x86_64-linux:$PATH
 script:
 - mkdir _build
 - pdflatex -output-directory _build vorlage.tex
-
 deploy:
   provider: releases
   api_key:
-    secure: "f64MHFejW83WaEx86pbYLJ0H1ZMof51k4PyOjuNG04OubN1nsKWE3VrqNPOWekYcdzl6iXNmzWO7/QfGZ8k0OiINP/i6acs7aIqqv2S0NWZ46EfiurtJqCY73fByRrKx+CAeY7FoWpQ8/VCnCU/X0dL5EpmyT1RuCfN91435P+kyiXKvsYgM3/KfOMAgsatSdJ79T9YysB1L9nVFBvGJQA52u2zRMuhtIHZuoNE8Wow/6pSr6or7ddQf6sb/5TxFQZEQohoUtdF61kkFzzWKDDOk4C6aiyfoXc2TQUeVftJqY5Aj92jYBvilKTYKugeVqAvSIo8KfjjxCjqxASBrbJA4gNh1RnL8lUylLiAFNwQ2uO8aczY8bToh4c+WIfPLjuqA+JXtTquGSxU4Bx5VgdYKBfaY5gYptYhYx2p/YCc1UJQFx2GoHpPj4QGH2lKi0RFbwSroTOkmvomXLoqwANz6Mihwi5G/Gf03wVOTOVu3B98KJT2FCi2v0TcoaM3/3cJV2fjLfFeiIYmTWJGhjI79wX3hKmZ4mH1EUV/dYrVudLUwM304Av+s/eDQyOwG6DazQl5YBqIRtF+SJ4Rn0sFY0S7Ukf7+d982qk2vn+zc7deOKSDw01vf02PK2S6Sh9yCglUVnIXYVbeXpYp4cR4ikNDvG0GNF3pweKQ6l3A="
-  file: buildByTravis/vorlage.pdf
-  skip_cleanup: true
+    secure: NaXCU9J+Q44EEIlgXstOH9rWRyEKjjuqd3oV1DE71UmYSD7oDTHxFDszRwZzFBtiY5Pp6D8wal/ctYqxNcZR/dx0F1TXu1XEmEYohre5jot5msj+IirX0mll8fIsE7NcuF6FLZjhbn3BqN/0rNQO1X8hKu8dCIH2lizo97YhohC/LlLVAH/srHsG5G0HCI8Ku2vmMnFxtETN2kNZVXuLbQXUOYhrI3//I+Ezi3CBpYM5Je8VzLu9delrlm7HVL4mZgtz/NUZILXv7W5Z4zgy4Nak1rpoGqKniuY+2NHhPzGTh/i2/6oad14cR0LGhVSypXEUHw5aCJrrCGBOGQPNi7DIqLnOD1ueC0x5dadBtnejtenMnKlQ75ibNt4EDnSuGOutUjOjR2hWvahjD9ZLz959vpwSrjOcZdvc+J5pw/W6bweP2DLq6f+UFoLV6UlchFHEIk9rzBteUj7bX8GDnJyvdxKYybnESxk0clrcC4vvpPxvBZrw8igzMmReGjo9JAz4/s0fQKgU3nyIjgl30Qay1CiVj8VoPNJg+Yue+VJhWirdLrH7BBjlRk2n57mv5hoTCh2TTi0IA/rbBNJ3z6Gc+JP3WH6ma//SZfQm76QOIqWi+oUZ6vHK48CCNpuJn6aTBpB9WervVUusFvQFg4nlWWCCqH6rXzkwlKlYYhU=
+  file: ''
+  overwrite: true
   on:
-    all_branches: true
+    tags: false
+    repo: AndreaBittner/latex_test
